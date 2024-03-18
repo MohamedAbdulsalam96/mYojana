@@ -29,6 +29,10 @@
   "new_source_of_information",
   "has_anyone_from_your_family_visisted_before",
   "select_primary_member",
+  "fssai_registration_number",
+  "tab_7_tab",
+  "fssai_registration",
+  "enter_fssai_registration_number",
   "demographic_profile_tab",
   "column_break_ewit",
   "caste_category",
@@ -75,13 +79,13 @@
   "id_documents_tab",
   "do_you_have_any_id_documents",
   "id_table_list",
+  "follow_up_table",
   "scheme_tab",
   "scheme_table",
   "overall_status",
   "numeric_overall_status",
   "all_schemes",
-  "follow_up_tab",
-  "follow_up_table"
+  "follow_up_tab"
  ],
  "fields": [
   {
@@ -269,6 +273,7 @@
    "label": "Origin details"
   },
   {
+   "fetch_from": ".state_code",
    "fieldname": "state_of_origin",
    "fieldtype": "Link",
    "label": "State of origin",
@@ -527,12 +532,35 @@
    "fieldtype": "Link",
    "label": "Social vulnerable category",
    "options": "Social vulnerable category"
+  },
+  {
+   "default": "0",
+   "fieldname": "fssai_registration_number",
+   "fieldtype": "Check",
+   "label": "FSSAI registration number"
+  },
+  {
+   "fieldname": "tab_7_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 7"
+  },
+  {
+   "default": "0",
+   "fieldname": "fssai_registration",
+   "fieldtype": "Check",
+   "label": "FSSAI Registration"
+  },
+  {
+   "depends_on": "eval:doc.name_of_the_camp ==\"Others\"",
+   "fieldname": "enter_fssai_registration_number",
+   "fieldtype": "Data",
+   "label": "Enter FSSAI registration number."
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-14 13:35:12.906025",
+ "modified": "2024-03-18 12:53:17.176093",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",

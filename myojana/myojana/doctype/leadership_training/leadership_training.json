@@ -1,0 +1,140 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-15 16:33:27.824227",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title_of_training",
+  "date",
+  "number_of_trainers",
+  "name_of_trainers",
+  "subject",
+  "state",
+  "city",
+  "location",
+  "number_of_participants",
+  "column_break_zgw6",
+  "minutes_of_the_training",
+  "photos",
+  "media_coverage",
+  "list_of_participant",
+  "section_break_tslz",
+  "list_of_participants"
+ ],
+ "fields": [
+  {
+   "fieldname": "title_of_training",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title of Training",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number_of_trainers",
+   "fieldtype": "Int",
+   "label": "Number of Trainers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "name_of_trainers",
+   "fieldtype": "Data",
+   "label": "Name of Trainers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject",
+   "reqd": 1
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Select",
+   "label": "City"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "number_of_participants",
+   "fieldtype": "Int",
+   "label": "Number of Participants"
+  },
+  {
+   "fieldname": "list_of_participants",
+   "fieldtype": "Table",
+   "label": "List of Participants",
+   "options": "LeadershipTrainingParticipants"
+  },
+  {
+   "fieldname": "section_break_tslz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_zgw6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "minutes_of_the_training",
+   "fieldtype": "Long Text",
+   "label": "Minutes of the Training"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Attach Image",
+   "label": "Photos"
+  },
+  {
+   "fieldname": "media_coverage",
+   "fieldtype": "Attach Image",
+   "label": "Media Coverage"
+  },
+  {
+   "fieldname": "list_of_participant",
+   "fieldtype": "Attach",
+   "label": "List of Participants"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-15 17:01:39.585547",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Leadership Training",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title_of_training"
+}
