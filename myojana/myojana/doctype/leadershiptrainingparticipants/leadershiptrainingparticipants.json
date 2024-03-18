@@ -1,0 +1,42 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-15 16:38:45.239276",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_beneficiary",
+  "fathers_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_beneficiary",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Name of Beneficiary",
+   "options": "Beneficiary Profiling",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "name_of_beneficiary.fathers_name",
+   "fieldname": "fathers_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Father's name",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-03-17 13:55:06.854293",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "LeadershipTrainingParticipants",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

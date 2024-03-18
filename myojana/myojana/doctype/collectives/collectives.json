@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:name_of_the_collective",
+ "creation": "2024-03-15 17:12:10.255971",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_the_collective",
+  "date_of_formation",
+  "nature_of_collective",
+  "state",
+  "district",
+  "location",
+  "section_break_vbqg",
+  "number_of_members",
+  "list_of_members"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_the_collective",
+   "fieldtype": "Data",
+   "label": "Name of the collective",
+   "unique": 1
+  },
+  {
+   "fieldname": "date_of_formation",
+   "fieldtype": "Date",
+   "label": "Date of formation"
+  },
+  {
+   "fieldname": "nature_of_collective",
+   "fieldtype": "Select",
+   "label": "Nature of Collective",
+   "options": "\nSettlement based\nMarket based\nOccupation based"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "number_of_members",
+   "fieldtype": "Int",
+   "label": "Number of Members"
+  },
+  {
+   "fieldname": "list_of_members",
+   "fieldtype": "Table",
+   "label": "List of Members",
+   "options": "CollectiveMembers"
+  },
+  {
+   "fieldname": "section_break_vbqg",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-17 19:22:48.512014",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Collectives",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name_of_the_collective"
+}
