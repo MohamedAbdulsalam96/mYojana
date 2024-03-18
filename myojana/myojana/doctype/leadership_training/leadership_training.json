@@ -63,8 +63,9 @@
   },
   {
    "fieldname": "city",
-   "fieldtype": "Select",
-   "label": "City"
+   "fieldtype": "Link",
+   "label": "City",
+   "options": "District"
   },
   {
    "fieldname": "location",
@@ -113,7 +114,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-15 17:01:39.585547",
+ "modified": "2024-03-18 14:20:11.543140",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Leadership Training",

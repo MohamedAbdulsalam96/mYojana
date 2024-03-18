@@ -3,9 +3,9 @@
 
 frappe.ui.form.on("Leadership Training", {
 	refresh(frm) {
-        hide_advance_search(frm , ['state'])
-        extend_options_length(frm , ['state'])
-        // apply_filter("district", "State", frm, frm.doc.state)
+        hide_advance_search(frm , ['state',"city"])
+        extend_options_length(frm , ['state', "city"])
+        apply_filter("city", "State", frm, frm.doc.state)
 	},
     date:function(frm){
         if (new Date(frm.doc.date) < new Date(frappe.datetime.get_today())) {
@@ -15,4 +15,7 @@ frappe.ui.form.on("Leadership Training", {
             frappe.throw(__("<b>Date</b> can't be less than today's date"))
           }
     },
+    state:function(frm){
+        apply_filter("city", "State", frm, frm.doc.state)
+    }
 });
