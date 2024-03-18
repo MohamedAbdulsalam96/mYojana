@@ -73,7 +73,8 @@ doctype_js = {"Beneficiary Profiling" : ["public/js/utils/utils.js" ,
                                          ],
              "Collectives":["public/js/utils/utils.js"] ,
              "Organization":["public/js/utils/utils.js"] ,
-             "Leadership Training":["public/js/utils/utils.js"] 
+             "Leadership Training":["public/js/utils/utils.js"],
+              "Advocacy":["public/js/utils/utils.js"] 
              
              }
 # doctype_js = {"Beneficiary Profiling" : }     
