@@ -16,6 +16,10 @@ class BeneficiaryProfiling(Document):
 	# 		for key in obj.__dict__.keys():
 	# 			print(key,obj.get(key, None))
 # find family and get family function
+	def insert_collective(collective_id):
+		pass
+
+		pass
 	def get_family(contact_number):
 		docs = frappe.db.get_list(doctype='Primary Member', filters={'name':contact_number}, fields=["name", "name_of_head_of_family",'name_of_head_of_family.name_of_the_beneficiary as name_of_the_beneficiary'])
 		if len(docs):
@@ -69,6 +73,10 @@ class BeneficiaryProfiling(Document):
 			occupation.save()
 
 	def validate(self):
+		if(self.do_you_want_to_be_a_part_of_collective == 'No'):
+			self.name_of_the_collective = ''
+		if(self.are_you_a_part_of_collective == 'No'):
+			self.which_collective_are_you_a_part_of = ''
 		if(self.contact_number == self.alternate_contact_number and self.contact_number is not None):
 			return frappe.throw("Alternate contact number cannot be the same as mobile number")
 		if(self.do_you_have_any_id_documents != "Yes"):
@@ -156,4 +164,49 @@ class BeneficiaryProfiling(Document):
 							query = f"UPDATE `tabBeneficiary Profiling` SET select_primary_member = '{self.select_primary_member}' WHERE select_primary_member = '{_doc_before_save.select_primary_member}'"
 							frappe.db.sql(query)
 							frappe.db.delete("Primary Member", {"name": family_doc.name})
+
+			# Collectives 
+			if(self.name_of_the_collective or self.which_collective_are_you_a_part_of):
+				data_exist = frappe.db.exists("CollectiveMembers", {"name_of_the_member": self.name})
+				if not data_exist:
+					collective_member= frappe.new_doc("CollectiveMembers")
+					collective_member.name_of_the_member = self.name
+					collective_member.parent = self.name_of_the_collective or self.which_collective_are_you_a_part_of
+					collective_member.fathers_name = self.fathers_name
+					collective_member.parenttype = 'Collectives'
+					collective_member.parentfield = 'list_of_members'
+					collective_member.save()
+				else:
+					collective_member = frappe.get_doc("CollectiveMembers", data_exist)
+					collective_member.parent = self.name_of_the_collective or self.which_collective_are_you_a_part_of
+					collective_member.fathers_name = self.fathers_name
+					collective_member.save()
+					print("beneficary already exists in collectives")
+			elif(self.do_you_want_to_be_a_part_of_collective == "No"):
+				data_exist = frappe.db.exists("CollectiveMembers", {"name_of_the_member": self.name})
+				if data_exist:
+					frappe.delete_doc("CollectiveMembers", data_exist)
+
+			# Organization 
+			# if(self.name_of_organization and self.do_you_want_to_be_part_of_any_organization == 'Yes'):
+			# 	data_exist = frappe.db.exists("CollectiveMembers", {"name_of_the_member": self.name})
+			# 	if not data_exist:
+			# 		collective_member= frappe.new_doc("CollectiveMembers")
+			# 		collective_member.name_of_the_member = self.name
+			# 		collective_member.parent = self.name_of_the_collective
+			# 		collective_member.fathers_name = self.fathers_name
+			# 		collective_member.parenttype = 'Collectives'
+			# 		collective_member.parentfield = 'list_of_members'
+			# 		collective_member.save()
+			# 	else:
+			# 		collective_member = frappe.get_doc("CollectiveMembers", data_exist)
+			# 		collective_member.parent = self.name_of_the_collective
+			# 		collective_member.fathers_name = self.fathers_name
+			# 		collective_member.save()
+			# 		print("beneficary already exists in collectives")
+			# elif(self.do_you_want_to_be_a_part_of_collective == "No"):
+			# 	data_exist = frappe.db.exists("CollectiveMembers", {"name_of_the_member": self.name})
+			# 	if data_exist:
+			# 		frappe.delete_doc("CollectiveMembers", data_exist)
+
 
