@@ -29,10 +29,22 @@
   "new_source_of_information",
   "has_anyone_from_your_family_visisted_before",
   "select_primary_member",
-  "fssai_registration_number",
-  "tab_7_tab",
+  "fssai_details_section",
+  "fssai_details_column",
   "fssai_registration",
   "enter_fssai_registration_number",
+  "fssai_training_number",
+  "enter_fssai_training_number",
+  "column_break_mpgg",
+  "survey_done",
+  "enter_survey_number",
+  "do_you_have_vending_certificate",
+  "enter_vending_certificate_number",
+  "column_break_qisq",
+  "do_you_have_lor",
+  "enter_lor_number",
+  "pmsvanidhi_number",
+  "enter_pmsvanidhi_number",
   "demographic_profile_tab",
   "column_break_ewit",
   "caste_category",
@@ -76,6 +88,17 @@
   "district_of_origin",
   "column_break_htmx",
   "block",
+  "additional_information_tab",
+  "collective_column",
+  "are_you_a_part_of_collective",
+  "do_you_want_to_be_a_part_of_collective",
+  "name_of_the_collective",
+  "which_collective_are_you_a_part_of",
+  "column_break_swaq",
+  "are_you_a_part_of_any_organization",
+  "which_organization_are_you_part_of",
+  "do_you_want_to_be_part_of_any_organization",
+  "name_of_organization",
   "id_documents_tab",
   "do_you_have_any_id_documents",
   "id_table_list",
@@ -535,32 +558,178 @@
   },
   {
    "default": "0",
-   "fieldname": "fssai_registration_number",
+   "fieldname": "fssai_registration",
    "fieldtype": "Check",
-   "label": "FSSAI registration number"
+   "label": "FSSAI Registration Number"
   },
   {
-   "fieldname": "tab_7_tab",
-   "fieldtype": "Tab Break",
-   "label": "Tab 7"
+   "depends_on": "eval:doc.fssai_registration == 1",
+   "fieldname": "enter_fssai_registration_number",
+   "fieldtype": "Data",
+   "label": "Enter FSSAI registration number.",
+   "mandatory_depends_on": "eval:doc.fssai_registration == 1"
   },
   {
    "default": "0",
-   "fieldname": "fssai_registration",
+   "fieldname": "fssai_training_number",
    "fieldtype": "Check",
-   "label": "FSSAI Registration"
+   "label": "FSSAI Training Number"
   },
   {
-   "depends_on": "eval:doc.name_of_the_camp ==\"Others\"",
-   "fieldname": "enter_fssai_registration_number",
+   "depends_on": "eval:doc.fssai_training_number == 1",
+   "fieldname": "enter_fssai_training_number",
    "fieldtype": "Data",
-   "label": "Enter FSSAI registration number."
+   "label": "Enter FSSAI training number",
+   "mandatory_depends_on": "eval:doc.fssai_training_number == 1"
+  },
+  {
+   "fieldname": "fssai_details_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "fssai_details_column",
+   "fieldtype": "Column Break",
+   "label": "FSSAI Details"
+  },
+  {
+   "fieldname": "column_break_mpgg",
+   "fieldtype": "Column Break",
+   "label": "Vending survey Details"
+  },
+  {
+   "fieldname": "column_break_qisq",
+   "fieldtype": "Column Break",
+   "label": "PMSVANidhi Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "survey_done",
+   "fieldtype": "Check",
+   "label": "Survey done"
+  },
+  {
+   "depends_on": "eval:doc.survey_done == 1",
+   "fieldname": "enter_survey_number",
+   "fieldtype": "Data",
+   "label": "Enter survey number",
+   "mandatory_depends_on": "eval:doc.survey_done == 1"
+  },
+  {
+   "default": "0",
+   "fieldname": "do_you_have_vending_certificate",
+   "fieldtype": "Check",
+   "label": " Do you have vending certificate?"
+  },
+  {
+   "depends_on": "eval:doc.do_you_have_vending_certificate ==1\r\n",
+   "fieldname": "enter_vending_certificate_number",
+   "fieldtype": "Data",
+   "label": "Enter vending certificate number",
+   "mandatory_depends_on": "eval:doc.do_you_have_vending_certificate ==1\r\n"
+  },
+  {
+   "default": "0",
+   "fieldname": "do_you_have_lor",
+   "fieldtype": "Check",
+   "label": "Do you have LOR?"
+  },
+  {
+   "depends_on": "eval:doc.do_you_have_lor == 1",
+   "fieldname": "enter_lor_number",
+   "fieldtype": "Data",
+   "label": "Enter LOR number",
+   "mandatory_depends_on": "eval:doc.do_you_have_lor == 1"
+  },
+  {
+   "default": "0",
+   "fieldname": "pmsvanidhi_number",
+   "fieldtype": "Check",
+   "label": "PMSVANidhi number"
+  },
+  {
+   "depends_on": "eval:doc.pmsvanidhi_number ==1",
+   "fieldname": "enter_pmsvanidhi_number",
+   "fieldtype": "Data",
+   "label": "Enter PMSVANidhi number",
+   "mandatory_depends_on": "eval:doc.pmsvanidhi_number ==1"
+  },
+  {
+   "fieldname": "additional_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Information"
+  },
+  {
+   "fieldname": "collective_column",
+   "fieldtype": "Column Break",
+   "label": "Collective "
+  },
+  {
+   "fieldname": "are_you_a_part_of_collective",
+   "fieldtype": "Select",
+   "label": "Are you a part of Collective?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "column_break_swaq",
+   "fieldtype": "Column Break",
+   "label": "Organization"
+  },
+  {
+   "depends_on": "eval:doc.are_you_a_part_of_collective ==\"No\"",
+   "fieldname": "do_you_want_to_be_a_part_of_collective",
+   "fieldtype": "Select",
+   "label": "Do you want to be a part of Collective?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.do_you_want_to_be_a_part_of_collective ==\"Yes\"",
+   "fieldname": "name_of_the_collective",
+   "fieldtype": "Link",
+   "label": "Name of the Collective you want to be part of?",
+   "options": "Collectives"
+  },
+  {
+   "depends_on": "eval:doc.are_you_a_part_of_collective ==\"Yes\"",
+   "fieldname": "which_collective_are_you_a_part_of",
+   "fieldtype": "Link",
+   "label": "Which collective are you a part of?",
+   "options": "Collectives"
+  },
+  {
+   "fieldname": "are_you_a_part_of_any_organization",
+   "fieldtype": "Select",
+   "label": "Are you a part of any Organization?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.are_you_a_part_of_any_organization ==\"No\"",
+   "fieldname": "do_you_want_to_be_part_of_any_organization",
+   "fieldtype": "Select",
+   "label": "Do you want to be part of any organization?",
+   "mandatory_depends_on": "eval:doc.are_you_a_part_of_any_organization ==\"No\"",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.do_you_want_to_be_part_of_any_organization ==\"Yes\"",
+   "fieldname": "name_of_organization",
+   "fieldtype": "Link",
+   "label": "Name of Organization you want to be part of?",
+   "mandatory_depends_on": "eval:doc.do_you_want_to_be_part_of_any_organization ==\"Yes\"",
+   "options": "Organization"
+  },
+  {
+   "depends_on": "eval:doc.are_you_a_part_of_any_organization ==\"Yes\"",
+   "fieldname": "which_organization_are_you_part_of",
+   "fieldtype": "Link",
+   "label": "Which organization are you part of?",
+   "mandatory_depends_on": "name_of_organization",
+   "options": "Organization"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-18 12:53:17.176093",
+ "modified": "2024-03-18 19:30:39.647487",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",

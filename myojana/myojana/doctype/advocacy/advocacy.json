@@ -15,6 +15,11 @@
   "new_stakeholder",
   "level",
   "subject",
+  "column_break_uhah",
+  "minutes",
+  "photos",
+  "media_coverage",
+  "section_break_qimf",
   "number_of_participants",
   "list_of_participants"
  ],
@@ -89,11 +94,34 @@
    "fieldtype": "Table",
    "label": "List of Participants",
    "options": "Advocacies Participant List"
+  },
+  {
+   "fieldname": "column_break_uhah",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "minutes",
+   "fieldtype": "Long Text",
+   "label": "Minutes "
+  },
+  {
+   "fieldname": "section_break_qimf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Attach Image",
+   "label": "Photos"
+  },
+  {
+   "fieldname": "media_coverage",
+   "fieldtype": "Attach Image",
+   "label": "Media Coverage"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-18 12:33:37.952430",
+ "modified": "2024-03-18 18:07:18.201574",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Advocacy",

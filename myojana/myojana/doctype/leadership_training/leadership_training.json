@@ -20,7 +20,10 @@
   "media_coverage",
   "list_of_participant",
   "section_break_tslz",
-  "list_of_participants"
+  "are_a_part_of_any_collective",
+  "list_of_participants",
+  "section_break_cpby",
+  "add_more_participants"
  ],
  "fields": [
   {
@@ -80,7 +83,7 @@
   {
    "fieldname": "list_of_participants",
    "fieldtype": "Table",
-   "label": "List of Participants",
+   "label": "Name of the Participants",
    "options": "LeadershipTrainingParticipants"
   },
   {
@@ -110,11 +113,27 @@
    "fieldname": "list_of_participant",
    "fieldtype": "Attach",
    "label": "List of Participants"
+  },
+  {
+   "fieldname": "are_a_part_of_any_collective",
+   "fieldtype": "Link",
+   "label": "Which collective are you part of?",
+   "options": "Collectives"
+  },
+  {
+   "fieldname": "section_break_cpby",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "add_more_participants",
+   "fieldtype": "Table",
+   "label": "Add more participants",
+   "options": "LeadershipTrainingParticipants"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-18 14:20:11.543140",
+ "modified": "2024-03-19 11:26:41.819016",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Leadership Training",
