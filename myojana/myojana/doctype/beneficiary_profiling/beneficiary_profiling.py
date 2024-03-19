@@ -164,19 +164,19 @@ class BeneficiaryProfiling(Document):
 							frappe.db.delete("Primary Member", {"name": family_doc.name})
 
 			# Collectives 
-			if(self.name_of_the_collective and self.do_you_want_to_be_a_part_of_collective == 'Yes'):
+			if(self.name_of_the_collective or self.which_collective_are_you_a_part_of):
 				data_exist = frappe.db.exists("CollectiveMembers", {"name_of_the_member": self.name})
 				if not data_exist:
 					collective_member= frappe.new_doc("CollectiveMembers")
 					collective_member.name_of_the_member = self.name
-					collective_member.parent = self.name_of_the_collective
+					collective_member.parent = self.name_of_the_collective or self.which_collective_are_you_a_part_of
 					collective_member.fathers_name = self.fathers_name
 					collective_member.parenttype = 'Collectives'
 					collective_member.parentfield = 'list_of_members'
 					collective_member.save()
 				else:
 					collective_member = frappe.get_doc("CollectiveMembers", data_exist)
-					collective_member.parent = self.name_of_the_collective
+					collective_member.parent = self.name_of_the_collective or self.which_collective_are_you_a_part_of
 					collective_member.fathers_name = self.fathers_name
 					collective_member.save()
 					print("beneficary already exists in collectives")
