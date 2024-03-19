@@ -676,7 +676,7 @@
    "label": "Organization"
   },
   {
-   "depends_on": "eval:doc.are_you_a_part_of_collective ==\"No\"",
+   "depends_on": "eval:doc.are_you_a_part_of_collective ===\"No\"",
    "fieldname": "do_you_want_to_be_a_part_of_collective",
    "fieldtype": "Select",
    "label": "Do you want to be a part of Collective?",
@@ -694,6 +694,7 @@
    "fieldname": "which_collective_are_you_a_part_of",
    "fieldtype": "Link",
    "label": "Which collective are you a part of?",
+   "mandatory_depends_on": "eval:doc.are_you_a_part_of_collective ==\"Yes\"",
    "options": "Collectives"
   },
   {
@@ -723,14 +724,13 @@
    "fieldname": "which_organization_are_you_part_of",
    "fieldtype": "Link",
    "label": "Which organization are you part of?",
-   "mandatory_depends_on": "name_of_organization",
    "options": "Organization"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-19 16:18:23.345249",
+ "modified": "2024-03-19 17:34:55.486372",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
