@@ -20,5 +20,4 @@ class Collectives(Document):
 				for data in self.list_of_members:
 					frappe.db.set_value('Beneficiary Profiling', data.name_of_the_member, 'are_you_a_part_of_collective', 'Yes', update_modified=False)
 					frappe.db.set_value('Beneficiary Profiling', data.name_of_the_member, 'which_collective_are_you_a_part_of', self.name, update_modified=False)
-					print("???????????????????????", data.name_of_the_member)
 	
