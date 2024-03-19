@@ -54,7 +54,9 @@
   {
    "fieldname": "number_of_members",
    "fieldtype": "Int",
-   "label": "Number of Members"
+   "label": "Number of Members",
+   "non_negative": 1,
+   "read_only": 1
   },
   {
    "fieldname": "list_of_members",
@@ -69,7 +71,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-17 19:22:48.512014",
+ "modified": "2024-03-19 14:39:42.707889",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Collectives",

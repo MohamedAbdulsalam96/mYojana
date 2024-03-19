@@ -3,6 +3,7 @@
 // frappe.require('../../public/js/utils/utils.js');
 frappe.ui.form.on("Collectives", {
 	refresh(frm) {
+        frm.set_value('number_of_members', frm?.doc?.list_of_members?.length)
         hide_advance_search(frm , ['state','district'])
         extend_options_length(frm , ['state', 'district'])
         apply_filter("district", "State", frm, frm.doc.state)

@@ -75,6 +75,8 @@ class BeneficiaryProfiling(Document):
 	def validate(self):
 		if(self.do_you_want_to_be_a_part_of_collective == 'No'):
 			self.name_of_the_collective = ''
+		if(self.are_you_a_part_of_collective == 'No'):
+			self.which_collective_are_you_a_part_of = ''
 		if(self.contact_number == self.alternate_contact_number and self.contact_number is not None):
 			return frappe.throw("Alternate contact number cannot be the same as mobile number")
 		if(self.do_you_have_any_id_documents != "Yes"):
