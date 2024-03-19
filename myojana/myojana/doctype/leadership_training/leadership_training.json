@@ -21,48 +21,40 @@
   "list_of_participant",
   "section_break_tslz",
   "are_a_part_of_any_collective",
-  "list_of_participants",
-  "section_break_cpby",
-  "add_more_participants"
+  "list_of_participants"
  ],
  "fields": [
   {
    "fieldname": "title_of_training",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Title of Training",
-   "reqd": 1
+   "label": "Title of Training"
   },
   {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date",
-   "reqd": 1
+   "label": "Date"
   },
   {
    "fieldname": "number_of_trainers",
    "fieldtype": "Int",
-   "label": "Number of Trainers",
-   "reqd": 1
+   "label": "Number of Trainers"
   },
   {
    "fieldname": "name_of_trainers",
    "fieldtype": "Data",
-   "label": "Name of Trainers",
-   "reqd": 1
+   "label": "Name of Trainers"
   },
   {
    "fieldname": "subject",
    "fieldtype": "Data",
-   "label": "Subject",
-   "reqd": 1
+   "label": "Subject"
   },
   {
    "fieldname": "state",
    "fieldtype": "Link",
    "label": "State",
-   "options": "State",
-   "reqd": 1
+   "options": "State"
   },
   {
    "fieldname": "city",
@@ -119,21 +111,11 @@
    "fieldtype": "Link",
    "label": "Which collective are you part of?",
    "options": "Collectives"
-  },
-  {
-   "fieldname": "section_break_cpby",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "add_more_participants",
-   "fieldtype": "Table",
-   "label": "Add more participants",
-   "options": "LeadershipTrainingParticipants"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-19 11:26:41.819016",
+ "modified": "2024-03-19 14:47:24.593381",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Leadership Training",

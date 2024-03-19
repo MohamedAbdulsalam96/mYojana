@@ -18,10 +18,7 @@
   "column_break_uhah",
   "minutes",
   "photos",
-  "media_coverage",
-  "section_break_qimf",
-  "number_of_participants",
-  "list_of_participants"
+  "media_coverage"
  ],
  "fields": [
   {
@@ -29,21 +26,18 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Advocacy",
-   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date",
-   "reqd": 1
+   "label": "Date"
   },
   {
    "fieldname": "state",
    "fieldtype": "Link",
    "label": "State",
-   "options": "State",
-   "reqd": 1
+   "options": "State"
   },
   {
    "fieldname": "city",
@@ -60,8 +54,7 @@
    "fieldname": "stakeholder",
    "fieldtype": "Link",
    "label": "Stakeholder",
-   "options": "Stakeholders",
-   "reqd": 1
+   "options": "Stakeholders"
   },
   {
    "depends_on": "eval:doc.stakeholder ==\"Others\"",
@@ -74,26 +67,12 @@
    "fieldname": "level",
    "fieldtype": "Select",
    "label": "Level",
-   "options": "\nCentral\nState\nDistrict\nSubdivision\nBlock\nPanchayat\nOthers",
-   "reqd": 1
+   "options": "\nCentral\nState\nDistrict\nSubdivision\nBlock\nPanchayat\nOthers"
   },
   {
    "fieldname": "subject",
    "fieldtype": "Data",
-   "label": "Subject",
-   "reqd": 1
-  },
-  {
-   "fieldname": "number_of_participants",
-   "fieldtype": "Int",
-   "label": "Number of Participants",
-   "reqd": 1
-  },
-  {
-   "fieldname": "list_of_participants",
-   "fieldtype": "Table",
-   "label": "List of Participants",
-   "options": "Advocacies Participant List"
+   "label": "Subject"
   },
   {
    "fieldname": "column_break_uhah",
@@ -103,10 +82,6 @@
    "fieldname": "minutes",
    "fieldtype": "Long Text",
    "label": "Minutes "
-  },
-  {
-   "fieldname": "section_break_qimf",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "photos",
@@ -121,7 +96,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-18 18:07:18.201574",
+ "modified": "2024-03-19 15:19:58.441120",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Advocacy",

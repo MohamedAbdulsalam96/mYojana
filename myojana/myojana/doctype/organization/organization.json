@@ -11,7 +11,8 @@
   "number_of_members",
   "state",
   "district",
-  "address"
+  "address",
+  "list_of_members"
  ],
  "fields": [
   {
@@ -53,11 +54,17 @@
    "fieldname": "number_of_members",
    "fieldtype": "Int",
    "label": "Number of Members"
+  },
+  {
+   "fieldname": "list_of_members",
+   "fieldtype": "Table",
+   "label": "List of Members",
+   "options": "OrganizationMembers List"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-15 16:07:25.437471",
+ "modified": "2024-03-19 15:26:05.102746",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Organization",
