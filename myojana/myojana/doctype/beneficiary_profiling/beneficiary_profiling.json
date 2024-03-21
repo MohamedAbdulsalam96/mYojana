@@ -425,6 +425,7 @@
    "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
    "fieldname": "single_window",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Single Window",
    "options": "Single Window"
   },
@@ -567,8 +568,7 @@
    "depends_on": "eval:doc.fssai_registration == 1",
    "fieldname": "enter_fssai_registration_number",
    "fieldtype": "Data",
-   "label": "Enter FSSAI registration number.",
-   "mandatory_depends_on": "eval:doc.fssai_registration == 1"
+   "label": "Enter FSSAI registration number."
   },
   {
    "default": "0",
@@ -580,8 +580,7 @@
    "depends_on": "eval:doc.fssai_training_number == 1",
    "fieldname": "enter_fssai_training_number",
    "fieldtype": "Data",
-   "label": "Enter FSSAI training number",
-   "mandatory_depends_on": "eval:doc.fssai_training_number == 1"
+   "label": "Enter FSSAI training number"
   },
   {
    "fieldname": "fssai_details_section",
@@ -612,8 +611,7 @@
    "depends_on": "eval:doc.survey_done == 1",
    "fieldname": "enter_survey_number",
    "fieldtype": "Data",
-   "label": "Enter survey number",
-   "mandatory_depends_on": "eval:doc.survey_done == 1"
+   "label": "Enter survey number"
   },
   {
    "default": "0",
@@ -625,8 +623,7 @@
    "depends_on": "eval:doc.do_you_have_vending_certificate ==1\r\n",
    "fieldname": "enter_vending_certificate_number",
    "fieldtype": "Data",
-   "label": "Enter vending certificate number",
-   "mandatory_depends_on": "eval:doc.do_you_have_vending_certificate ==1\r\n"
+   "label": "Enter vending certificate number"
   },
   {
    "default": "0",
@@ -638,8 +635,7 @@
    "depends_on": "eval:doc.do_you_have_lor == 1",
    "fieldname": "enter_lor_number",
    "fieldtype": "Data",
-   "label": "Enter LOR number",
-   "mandatory_depends_on": "eval:doc.do_you_have_lor == 1"
+   "label": "Enter LOR number"
   },
   {
    "default": "0",
@@ -651,8 +647,7 @@
    "depends_on": "eval:doc.pmsvanidhi_number ==1",
    "fieldname": "enter_pmsvanidhi_number",
    "fieldtype": "Data",
-   "label": "Enter PMSVANidhi number",
-   "mandatory_depends_on": "eval:doc.pmsvanidhi_number ==1"
+   "label": "Enter PMSVANidhi number"
   },
   {
    "fieldname": "additional_information_tab",
@@ -730,7 +725,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-20 14:11:56.523813",
+ "modified": "2024-03-21 12:50:04.930364",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
