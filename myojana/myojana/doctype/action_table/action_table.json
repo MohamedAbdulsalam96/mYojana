@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-03-22 14:38:06.728145",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "nature_of_action",
+  "objective_of_meeting",
+  "photos",
+  "minutes"
+ ],
+ "fields": [
+  {
+   "fieldname": "nature_of_action",
+   "fieldtype": "Data",
+   "label": "Nature of action"
+  },
+  {
+   "fieldname": "objective_of_meeting",
+   "fieldtype": "Data",
+   "label": "Objective of meeting"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Attach Image",
+   "label": "Photos"
+  },
+  {
+   "fieldname": "minutes",
+   "fieldtype": "Long Text",
+   "label": "Minutes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-03-22 14:40:08.507521",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Action Table",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
