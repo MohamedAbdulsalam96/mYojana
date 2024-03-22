@@ -10,7 +10,7 @@ const apply_filter_in_child_table = async (frm) => {
           return {
             filters: [
               ['Beneficiary Profiling', 'which_collective_are_you_a_part_of', '=' ,""],
-              ['Beneficiary Profiling', 'which_collective_are_you_a_part_of', '=' ,""]
+              ['Beneficiary Profiling', 'name_of_the_collective', '=' ,""]
             ]
           };
         };

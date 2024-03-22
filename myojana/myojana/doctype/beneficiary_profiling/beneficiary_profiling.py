@@ -73,6 +73,10 @@ class BeneficiaryProfiling(Document):
 			occupation.save()
 
 	def validate(self):
+		if(self.are_you_a_part_of_any_organization == 'No'):
+			self.which_organization_are_you_part_of =''
+		if(self.do_you_want_to_be_part_of_any_organization == 'No'):
+			self.name_of_organization =''
 		if(self.do_you_want_to_be_a_part_of_collective == 'No'):
 			self.name_of_the_collective = ''
 		if(self.are_you_a_part_of_collective == 'No'):
@@ -154,6 +158,27 @@ class BeneficiaryProfiling(Document):
 				data_exist = frappe.db.exists("CollectiveMembers", {"name_of_the_member": self.name})
 				if data_exist:
 					frappe.delete_doc("CollectiveMembers", data_exist)
+# orgintions
+		if(self.which_organization_are_you_part_of or self.name_of_organization):
+			data_exist = frappe.db.exists("OrganizationMembers List", {"name_of_the_organization": self.name})
+			if not data_exist:
+				orgination= frappe.new_doc("OrganizationMembers List")
+				orgination.name_of_the_member = self.name
+				orgination.parent = self.which_organization_are_you_part_of or self.name_of_organization
+				orgination.fathers_name = self.fathers_name
+				orgination.parenttype = 'Organization'
+				orgination.parentfield = 'list_of_members'
+				orgination.save()
+			else:
+				orgination = frappe.get_doc("OrganizationMembers List", data_exist)
+				orgination.parent = self.which_organization_are_you_part_of or self.name_of_organization
+				orgination.fathers_name = self.fathers_name
+				orgination.save()
+				print("beneficary already exists in Organization")
+		elif(self.are_you_a_part_of_any_organization == "No"):
+				data_exist = frappe.db.exists("OrganizationMembers List", {"name_of_the_member": self.name})
+				if data_exist:
+					frappe.delete_doc("OrganizationMembers List", data_exist)
 
 		if self.get('localname'):
 			return

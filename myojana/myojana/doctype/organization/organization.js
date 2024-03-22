@@ -1,8 +1,26 @@
 // Copyright (c) 2024, dhwaniris and contributors
 // For license information, please see license.txt
-
+const apply_filter_in_child_table = async (frm) => {
+    //  APPLY Filter in ID DOCUMENT
+    var child_table = frm.fields_dict['list_of_members'].grid;
+    if (child_table) {
+      try {
+        child_table.get_field('name_of_the_member').get_query = function () {
+          return {
+            filters: [
+              ['Beneficiary Profiling', 'which_organization_are_you_part_of', '=' ,""],
+              ['Beneficiary Profiling', 'name_of_organization', '=' ,""]
+            ]
+          };
+        };
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  }
 frappe.ui.form.on("Organization", {
 	refresh(frm) {
+        apply_filter_in_child_table(frm)
         hide_advance_search(frm , ['state','district'])
         extend_options_length(frm , ['state', 'district'])
         apply_filter("district", "State", frm, frm.doc.state)
