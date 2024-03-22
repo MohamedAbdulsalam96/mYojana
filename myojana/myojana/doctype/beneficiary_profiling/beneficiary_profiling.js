@@ -294,7 +294,21 @@ frappe.ui.form.on("Beneficiary Profiling",{
       frm.doc.added_by = frappe.session.user
       refresh_field("added_by")
     }
-
+    // previous route in frappe
+    prev_route = frappe.get_prev_route();
+    prev_doctype = prev_route[1];
+    prev_docname = prev_route[2];
+    console.log(prev_route);
+    if(prev_doctype  == 'Collectives'){
+      frm.set_value('are_you_a_part_of_collective', 'Yes')
+      frm.set_value('which_collective_are_you_a_part_of', prev_docname)
+    }
+    if(prev_doctype  == 'Organization'){
+      frm.set_value('are_you_a_part_of_any_organization', 'Yes')
+      frm.set_value('which_organization_are_you_part_of', prev_docname)
+    }
+    // let prev_doc = frappe.get_doc(prev_doctype, prev_docname);
+    // console.log("prev_doc", prev_doc)
     // set  defult date of visit
     if (frm.doc.__islocal && !frm.doc.date_of_visit) {
       frm.set_value('date_of_visit', frappe.datetime.get_today());

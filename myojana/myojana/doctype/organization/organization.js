@@ -1,5 +1,7 @@
 // Copyright (c) 2024, dhwaniris and contributors
 // For license information, please see license.txt
+
+let removed_item = []
 const apply_filter_in_child_table = async (frm) => {
     //  APPLY Filter in ID DOCUMENT
     var child_table = frm.fields_dict['list_of_members'].grid;
@@ -19,6 +21,10 @@ const apply_filter_in_child_table = async (frm) => {
     }
   }
 frappe.ui.form.on("Organization", {
+    before_save:async function(frm){
+        //  set deleted item in frm
+        frm.doc.deleted_rows = removed_item
+      },
 	refresh(frm) {
         apply_filter_in_child_table(frm)
         hide_advance_search(frm , ['state','district'])
@@ -37,3 +43,10 @@ frappe.ui.form.on("Organization", {
         apply_filter("district", "State", frm, frm.doc.state)
     }
 });
+frappe.ui.form.on('OrganizationMembers List', {
+    // child table remove events
+    list_of_members_remove:async function(frm, cdt, cdn){
+     removed_item.push(cdn)
+   }
+   });
+   

@@ -26,7 +26,6 @@ frappe.ui.form.on("Collectives", {
     frm.doc.deleted_rows = removed_item
   },
 	refresh(frm) {
-    console.log(frm.doc.list_of_members)
         apply_filter_in_child_table(frm)
         frm.set_value('number_of_members', frm?.doc?.list_of_members?.length)
         hide_advance_search(frm , ['state','district'])
