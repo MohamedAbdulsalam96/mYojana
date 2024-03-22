@@ -6,10 +6,18 @@ from frappe.model.document import Document
 
 
 class Collectives(Document):
-	def validate(self):
-		pass
-
-
+	def before_save(self):
+		if(self.deleted_rows):
+			for item in self.deleted_rows:
+				ben = frappe.db.get_value('CollectiveMembers', item, 'name_of_the_member')
+				print(ben)
+				if(ben):
+					frappe.db.set_value('Beneficiary Profiling', ben, {
+						'are_you_a_part_of_collective': 'No',
+						'do_you_want_to_be_a_part_of_collective': 'No',
+						'name_of_the_collective':'',
+						'which_collective_are_you_a_part_of':''})
+					
 	def on_update(self):
 		if self.get('localname'):
 			return
@@ -28,3 +36,7 @@ class Collectives(Document):
 					else:
 						frappe.db.set_value('Beneficiary Profiling', data.name_of_the_member, 'are_you_a_part_of_collective', 'Yes', update_modified=False)
 						frappe.db.set_value('Beneficiary Profiling', data.name_of_the_member, 'which_collective_are_you_a_part_of', self.name, update_modified=False)
+
+	# def before_delete(self):
+	# 	child_table_records = self.get('child_table_field')
+	# 	print("Child Table Records Before Deletion:", child_table_records)

@@ -1,6 +1,7 @@
 // Copyright (c) 2024, dhwaniris and contributors
 // For license information, please see license.txt
 // frappe.require('../../public/js/utils/utils.js');
+let removed_item = []
 const apply_filter_in_child_table = async (frm) => {
     //  APPLY Filter in ID DOCUMENT
     var child_table = frm.fields_dict['list_of_members'].grid;
@@ -20,7 +21,12 @@ const apply_filter_in_child_table = async (frm) => {
     }
   }
 frappe.ui.form.on("Collectives", {
+  before_save:async function(frm){
+    //  set deleted item in frm
+    frm.doc.deleted_rows = removed_item
+  },
 	refresh(frm) {
+    console.log(frm.doc.list_of_members)
         apply_filter_in_child_table(frm)
         frm.set_value('number_of_members', frm?.doc?.list_of_members?.length)
         hide_advance_search(frm , ['state','district'])
@@ -37,6 +43,14 @@ frappe.ui.form.on("Collectives", {
     },
     state:function(frm){
         apply_filter("district", "State", frm, frm.doc.state)
-    }
+    },
+   
 
+});
+
+frappe.ui.form.on('CollectiveMembers', {
+ // child table remove events
+ list_of_members_remove:async function(frm, cdt, cdn){
+  removed_item.push(cdn)
+}
 });
