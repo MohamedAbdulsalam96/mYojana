@@ -1,7 +1,7 @@
 // Copyright (c) 2024, dhwaniris and contributors
 // For license information, please see license.txt
 
-// frappe.ui.form.on("Role Permission", {
+// frappe.ui.form.on("ID Card Authorizer Signature", {
 // 	refresh(frm) {
 
 // 	},

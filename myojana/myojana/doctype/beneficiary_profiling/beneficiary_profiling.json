@@ -275,7 +275,7 @@
   },
   {
    "fieldname": "ward",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Ward/Tehsil/Block",
    "options": "Block"
   },
@@ -725,7 +725,11 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
+<<<<<<< HEAD
  "modified": "2024-03-21 12:50:04.930364",
+=======
+ "modified": "2024-03-20 14:11:56.523813",
+>>>>>>> a3ae8e5bd2fe121d137b64cde151887b4f45bf77
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
